@@ -39,15 +39,21 @@ for i in 1...wordsProvided {
     
 // Two different strings
     var finalAnswer = ""
-    var wordsCanadian = ""
-    var wordsAmerican = ""
-    var orString = "or"
-    var ourString = "our"
-// The input is not nil
-    guard let wordsInput = readLine() else {
-        continue
-    }
     
+// Reverse the word
+    var wordsInput = ""
+    var output = ""
+    var wordsReversed = String(wordsInput.reversed())
+
+// Check if there is a or at the start of a word
+    let endsWithOr = String.hasSuffix ("wordsReversed")
+// If fount the or, add u
+    for character in wordsReversed {
+        if endsWithOr = true {
+            output += String(letter)
+            
+        }
+    }
   
 // If not find " or ", copy the original character
     // If find " or ", change it to "our"
