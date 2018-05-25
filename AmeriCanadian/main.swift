@@ -6,51 +6,80 @@
 import Foundation
 
 // INPUT
-
+print("How many words will be provided?")
 // Global variable, tracks how many words we can expect to have to translate
-var countOfExpectedWordsToTranslate = 3
+var wordsProvided = 0
 
-// Write a loop to actually collect the expected count of words to be translated from user
-// e.g.: write the rest of the INPUT section
-
-
-// PROCESS & OUTPUT
-
-// NOTE:
-//
-// Some example code that may be useful
-
-// Start with a word
-var word = "tour"
-
-// Check to see if the word is "American" or not
-let isAmerican = word.hasSuffix("or")
-print("Is this word American? \(isAmerican)")
-
-// Reverse the letters of the word
-var reversedWord = String(word.reversed())
-print("The reversed word is: \(reversedWord)")
-
-// Now put things back the way they were to start
-var originalWord = String(reversedWord.reversed())
-print("The reversed word, reversed again is: \(originalWord)")
-
-// Collect the words to be translated
-for counter in 1...countOfExpectedWordsToTranslate {
-    
-    // Prompt for a word
-    print("Enter word #\(counter):")
-    
-    // Get the input (use guard-let to guarantee it is not nil)
-    // and then print it out
-    guard let givenInput = readLine() else {
-        // If someone enters nil input, just skip to the next line
+while 1 == 1 {
+    //If it's nil
+    guard let wordsNumber = readLine() else {
         continue
     }
     
-    // Add your logic here...
-    // Determine if word is "American" and translate if necessary
-    print("The given input was: \(givenInput)")
+    //If it's an integer
+    guard let wordsNumberInput = Int(wordsNumber) else {
+        continue
+    }
     
+    //If it's more than 0 and less than 10
+    if wordsNumberInput < 0 || wordsNumberInput > 10 {
+        continue
+    }
+    
+    //The input is valid here
+    wordsProvided = wordsNumberInput
+    break
 }
+
+
+// Enter the words
+for i in 1...wordsProvided {
+    print("Enter word #\(i)")
+    
+    
+// Two different strings
+    var finalAnswer = ""
+    var wordsCanadian = ""
+    var wordsAmerican = ""
+    var orString = "or"
+    var ourString = "our"
+// The input is not nil
+    guard let wordsInput = readLine() else {
+        continue
+    }
+    
+  
+// If not find " or ", copy the original character
+    // If find " or ", change it to "our"
+    var findOr = false
+    for character in wordsInput {
+        switch character {
+        case orString :
+            findOr = true
+        default :
+            findOr = false
+            }
+        
+        if findOr == false {
+            wordsAmerican += String(character)
+        } else {
+            wordsCanadian += String(ourString)
+        }
+    }
+    
+    // Print the result
+    finalAnswer = wordsAmerican + wordsCanadian
+    print(finalAnswer)
+   
+}
+
+
+// PROCESS & OUTPUT
+// Words input
+
+    
+
+
+
+
 
